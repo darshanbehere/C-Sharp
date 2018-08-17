@@ -10,10 +10,10 @@ public static void Main(){
   double bal;
   string nm;
   try{
-    scon = new SqlConnection(server=******\\SqlEXPRESS;uid=sa;pwd=******;database="santiago");
-    sda = new SqlAdapter("select * from accouts where acctype='saving';",scon);
+    scon = new SqlConnection("server=*****\\SqlEXPRESS;uid=sa;pwd=*****;database=master");
+    sda = new SqlDataAdapter("select * from accounts where acctype='saving';",scon);
     ds = new DataSet();
-    sda.fill(ds,"acc");
+    sda.Fill(ds,"acc");
     cnt = ds.Tables["acc"].Rows.Count;
     for(int i=0;i<cnt;i++){
       nm = Convert.ToString(ds.Tables["acc"].Rows[i]["accnm"]);
@@ -22,7 +22,7 @@ public static void Main(){
     }
   }
   catch(Exception ex){
-    Console.WriteLine(ex.getMessage)
+    Console.WriteLine(ex.Message);
   }
 }
 }
